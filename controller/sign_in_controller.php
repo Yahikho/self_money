@@ -10,6 +10,8 @@ $userPassword = $_POST['userPassword'];
 $signInModel = new SignInMoldel($userName, $userPassword);
 $signInModel->getDataUser();
 
+print_r( $signInModel);
+
 if(!empty($signInModel)){
     echo json_encode($signInModel);
 }else{
