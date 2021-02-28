@@ -1,28 +1,55 @@
 <?php
 
-require_once '../includes/connection_db.php';
+include_once 'queries.php';
 
-class SignUpModel{
+class SignUpMoldel  extends Queries{
 
-    public $user;
-    public $email;
-    public $password;
+    private $table = 'users';
+    private $query;
+    
 
-    private $connection;
+    function __construct($dataUser){
+        
+        $this->dataUser = $dataUser;
+        $this->query = new Queries($this->table);
+           
+    }
 
-    function __construct(){
+    public function returnRespounse(){
 
-        $this->user = '';
-        $this->email = '';
-        $this->password = '';
+        if(empty($this->callRowIfExist())){
+            if(empty($this->insertUser())){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    
+    }
 
-        $this->connection = new Connection();
+    private function callRowIfExist(){
+
+        $arrayDataUsers = [
+            "column"=>"user_name",
+            "value"=>$this->dataUser['user_name']
+        ];
+
+        $row = $this->query;
+        $respounseCallRowIfExist = $row->searchRowSimple($arrayDataUsers);
+
+        return $respounseCallRowIfExist;
 
     }
 
-    public function createUser(){
-        $sql = "INSERT INTO users (username, email, password) VALUES (:$this->user, :$this->email, :$this->password)";
-        $createUser = $this->connection->connect()->prepare($sql);
-        $createUser->execute();
+    private function insertUser(){
+
+        $insertUser = $this->query;
+        $insertUser->insertDatos($this->dataUser);
+
     }
+
+
+
 }

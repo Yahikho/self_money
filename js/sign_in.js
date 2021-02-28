@@ -1,5 +1,6 @@
 
 let formSignIn = document.getElementById('formSignin');
+let labelMessage = document.getElementById('message');
 
 formSignIn.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -9,11 +10,12 @@ formSignIn.addEventListener('submit', (e) =>{
         method: 'POST',
         body:data
     })
-    .then(Response => Response.text())
-    .then(text =>{
-        console.log(text)
+    .then(Response => Response.json())
+    .then(({ respounse }) =>{
+        if(respounse === 'success'){
+            location.href = 'home.php';
+        }else{
+            labelMessage.innerHTML = 'Incorrect username or password.';
+        }
     })
-    // .catch(function(){
-    //     console.log(Response);
-    // })
 })

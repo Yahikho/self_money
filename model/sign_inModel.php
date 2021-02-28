@@ -1,32 +1,41 @@
 <?php
 
-//include_once 'user.php';
 include_once '../includes/connection_db.php';
 
-class SignInMoldel /*extends User*/{
+class SignInMoldel  {
 
-   // private $user;
-   private $connection;
+    private $table;
+    private $connection;
+    
 
-
-    function __construct($userName, $userPassword){
+    function __construct($dataUser){
         
-        $this->userName = $userName;
-        $this->userPassword = $userPassword;
+        $this->dataUser = $dataUser;
         $this->connection = new Connection();
-        //$user = new User();
-        
+        $this->table = "users";
+           
     }
 
+
     public function getDataUser(){
+
     
-        $sql = "SELECT * FROM users WHERE username = :username AND password = :userpassword;";
+        $sql = "SELECT * FROM {$this->table} WHERE user_name = :user_name AND user_password = :user_password;";
         $sth = $this->connection->connect()->prepare($sql);
-        $sth->bindParam(':username',$this->userName, PDO::PARAM_STR);
-        $sth->bindParam(':userpassword',$this->userPassword, PDO::PARAM_STR);
+
+        foreach($this->dataUser as $key => &$value){
+            $sth->bindParam(":$key", $value);
+        }
+
+        // $sth->bindParam(':username',$this->dataUser['username'], PDO::PARAM_STR);
+        // $sth->bindParam(':userpassword',$this->dataUser['password'], PDO::PARAM_STR);
+
         $sth->execute();
         $rest = $sth->fetchAll(PDO::FETCH_OBJ);
         return $rest;
+
     }
+
+
 
 }

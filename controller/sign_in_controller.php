@@ -1,19 +1,23 @@
 <?php
 
 include_once '../model/sign_inModel.php';
-//include_once '../includes/connection_db.php';
 
-$userName = $_POST['userName'];
-$userPassword = $_POST['userPassword'];
+$userName = $_POST['user_name'];
+$userPassword = $_POST['user_password'];
+
+$dataUser = [
+            "user_name"=>$userName, 
+            "user_password"=>md5($userPassword)
+            ];
 
 
-$signInModel = new SignInMoldel($userName, $userPassword);
-$signInModel->getDataUser();
+$signInModel = new SignInMoldel($dataUser);
 
-print_r( $signInModel);
+$respouse = $signInModel->getDataUser();
 
-if(!empty($signInModel)){
-    echo json_encode($signInModel);
+
+if(!empty($respouse)){
+    echo json_encode(array("respounse"=>"success"));
 }else{
-    echo json_encode(array("response"=>"failed"));
+    echo json_encode(array("respounse"=>"failed"));
 }

@@ -1,18 +1,39 @@
 
 let formSignUp = document.getElementById('formSignup');
-//let btnSubmit = document.getElementById('btnSingUp');
+let labelMessage = document.getElementById('message');
 
 formSignUp.addEventListener('submit', (e) => {
     e.preventDefault();
 
     var data = new FormData(formSignUp);
-    //console.log(data)
     fetch('../controller/sign_upController.php',{
         method : 'POST',
         body : data
     })
     .then(res => res.json())
-    .then(data => {
-        console.log(data)
+    .then(({ respounse }) =>{
+
+        switch(respounse){
+
+            case  'success' :
+                console.log('success');
+            break
+            case  'dataTypeLong' :
+                labelMessage.innerHTML = "Long peroon";
+            break
+            case  'problemPoints' :
+                console.log('problemPoints');
+            break
+            case  'noLetters' :
+                console.log('noLetters');
+            break
+            case  'failed' :
+                console.log('failed');
+            break
+            case  'sucess' :
+                console.log('dataNull');
+            break
+
+        }
     })
 });
