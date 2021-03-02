@@ -12,9 +12,9 @@
         <h3 class="title-form"> Sign In</h3>
         <form id="formSignin" class="form-basic">
             <p class="data-user">User Name</p>
-            <input type="text" name="user_name" maxlength="20" required>
+            <input type="text" name="user_name" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();" >
             <p class="data-user">Password</p>
-            <input type="password" name="user_password" required>
+            <input type="password" name="user_password" >
             <button class="btnCommon" id="btnSingUp" type="submit">Sing In</button>
         </form>
         <div class="messages_">

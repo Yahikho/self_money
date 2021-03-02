@@ -2,9 +2,9 @@
 let formSignUp = document.getElementById('formSignup');
 let labelMessage = document.getElementById('message');
 
+
 formSignUp.addEventListener('submit', (e) => {
     e.preventDefault();
-
     var data = new FormData(formSignUp);
     fetch('../controller/sign_upController.php',{
         method : 'POST',
@@ -16,24 +16,48 @@ formSignUp.addEventListener('submit', (e) => {
         switch(respounse){
 
             case  'success' :
-                console.log('success');
+                labelMessage.innerHTML = "User created successfully";
+                showMessage();
             break
             case  'dataTypeLong' :
-                labelMessage.innerHTML = "Long peroon";
+                labelMessage.innerHTML = "The password or user has many characters";
+                cleanInputs();
+                showMessage();
             break
             case  'problemPoints' :
-                console.log('problemPoints');
+                labelMessage.innerHTML = "User should be match the example";
+                cleanInputs();
+                showMessage();
             break
             case  'noLetters' :
-                console.log('noLetters');
+                labelMessage.innerHTML = "User must have only letters"
+                cleanInputs();
+                showMessage();
             break
             case  'failed' :
-                console.log('failed');
+                labelMessage.innerHTML = "User already exist";
+                cleanInputs();
+                showMessage();
             break
-            case  'sucess' :
-                console.log('dataNull');
+            case  'dataNull' :
+                labelMessage.innerHTML = "Field must be full";
+                showMessage();
+                cleanInputs();
             break
 
         }
     })
 });
+
+const showMessage = () => {
+
+     return setTimeout(()=> {
+        labelMessage.innerHTML = ""
+    },2000)
+
+}
+
+function cleanInputs(){
+    formSignUp['user_name'].value = "";
+    formSignUp['user_password'].value = "";
+}
