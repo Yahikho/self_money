@@ -15,9 +15,10 @@ $signInModel = new SignInMoldel($dataUser);
 
 $respouse = $signInModel->getDataUser();
 
-
-if(!empty($respouse)){
-    echo json_encode(array("respounse"=>"success"));
-}else{
+if(empty($respouse)){
     echo json_encode(array("respounse"=>"failed"));
+}else{
+    session_start();
+    $_SESSION['user_name'] = $userName;
+    echo json_encode(array("respounse"=>"success"));
 }

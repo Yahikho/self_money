@@ -1,7 +1,5 @@
-
 let formSignIn = document.getElementById('formSignin');
 let labelMessage = document.getElementById('message');
-
 
 formSignIn.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -14,7 +12,7 @@ formSignIn.addEventListener('submit', (e) =>{
     .then(Response => Response.json())
     .then(({ respounse }) =>{
         if(respounse === 'success'){
-            location.href = 'home.php';
+            location.href = 'home.php'
         }else{
             labelMessage.innerHTML = 'Incorrect username or password.';
             cleanInputs();

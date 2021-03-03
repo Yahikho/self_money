@@ -41,7 +41,8 @@ if(!empty($userName) || !empty($userPassword)){
 
                 if($respounse){
 
-                    echo json_encode(array("respounse"=>"success"));
+                    //echo json_encode(array("respounse"=>"success"));
+                    header('Location: ../view/home.php');
 
                 }else{
 
