@@ -1,19 +1,23 @@
 <?php
+  
     session_start();
     if(isset($_POST['signOut'])){
         unset($_SESSION['user_name']);
-        header('Location: ../sign_in.php');
-    }else{
-        header('Location: ../sign.php');
+        header('Location: sign_in.php');
     }
 ?>
-<?php if(isset($_SESSION['user_name'])){?>
+<?php
+    if(isset($_SESSION['user_name'])){
+?>
+<link rel="stylesheet" href="../css/header.css">
 <header>
-<form action="../sign_in.php" method="POST">
+<form action="" method="POST" class="form_header" >
     <p><span><?=$_SESSION['user_name']?></span></p>
-    <button type="submit" name="signOut"></button>
+    <button type="submit" name="signOut">Sign Out</button>
 </form>
 </header>
-<?php }else 
-    header('Location: ../sign_in.php');
+<?php
+}else{
+    header('Location: sign_in.php');
+}
 ?>
