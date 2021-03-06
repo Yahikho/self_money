@@ -1,6 +1,5 @@
 <?php
 include_once '../model/sign_upModel.php';
-//include_once '../includes/connection_db.php';
 
 $userName = $_POST['user_name'];
 $userPassword = $_POST['user_password'];
@@ -10,8 +9,6 @@ $dataUsers = [
     "user_password" => md5($userPassword)
 ];
 
-
-//print_r($respounse);
 
 if(!empty($userName) || !empty($userPassword)){
 
@@ -41,8 +38,7 @@ if(!empty($userName) || !empty($userPassword)){
 
                 if($respounse){
 
-                    //echo json_encode(array("respounse"=>"success"));
-                    header('Location: ../view/home.php');
+                    echo json_encode(array("respounse"=>"success"));
 
                 }else{
 

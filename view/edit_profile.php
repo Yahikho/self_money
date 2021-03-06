@@ -10,13 +10,16 @@
     include 'header.php';
 ?>
 <body>
+    <h4>Edit Profile</h4>
     <form id="form_edit_profile">
         <p>Type new user nanem</p>
-        <input type="text" name="user_name">
+        <input type="text" name="user_name" name="new_user_name">
         <p>Type passowrd</p>
-        <input type="password" name="password">
+        <input type="password" name="password" name="user_password">
         <p>Type new password</p>
-        <input type="password" name="password_new">
+        <input type="password" name="password_new" name="new_user_password">
+        <button type="submit" id="upgrade_data">Upgrade</button>
     </form>
 </body>
+<script src="../js/edit_profile.js"></script>
 </html>

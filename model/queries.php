@@ -23,7 +23,7 @@ class Queries{
         $sql = "SELECT * FROM {$this->table} WHERE {$arrayData['column']} = '{$arrayData['value']}'";
         $sth = $this->connection->prepare($sql);
         $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_OBJ);;
+        return $sth->fetchAll(PDO::FETCH_OBJ);
 
     }
 

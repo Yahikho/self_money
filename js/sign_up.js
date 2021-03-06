@@ -11,7 +11,7 @@ formSignUp.addEventListener('submit', (e) => {
         body : data
     })
     .then(res => res.json())
-    .then(({ respounse }) =>{
+    .then(({respounse}) =>{
 
         switch(respounse){
 
