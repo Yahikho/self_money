@@ -2,7 +2,7 @@
 
 include_once 'queries.php';
 
-class SignUpMoldel  extends Queries{
+class SignUpMoldel extends Queries{
 
     private $table = 'users';
     private $query;

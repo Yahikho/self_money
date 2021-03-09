@@ -1,7 +1,7 @@
-let formSignUpdate = document.getElementById('form_edit_profile');
+let formSignUpdate = document.getElementById('formEditProfile');
 let btnUgradeDataUser = document.getElementById('upgrade_data');
 
-btnUgradeDataUser.addEventListener('submit', (e) =>{
+formSignUpdate.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     let data = new FormData(formSignUpdate);
@@ -12,6 +12,9 @@ btnUgradeDataUser.addEventListener('submit', (e) =>{
     })
     .then(res => res.json())
     .then(({response}) => {
-        console.log(response);
+        switch(response){
+            case 'success':
+                console.log('Success');
+        }
     })
 })
