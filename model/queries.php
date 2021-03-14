@@ -23,7 +23,8 @@ class Queries{
         $sql = "SELECT * FROM {$this->table} WHERE {$arrayData['column']} = '{$arrayData['value']}'";
         $sth = $this->connection->prepare($sql);
         $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_OBJ);
+        $this->clearSqlQuery();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
@@ -37,6 +38,21 @@ class Queries{
       
     }
 
+    public function updateData($arrayData, $where){
+        $cells = '';
+        foreach($arrayData as $key => $value){
+            $cells .= "`$key`=:$key,";
+        }   
+        $cells = rtrim($cells, ',');
+
+        $this->sqlQuery = "UPDATE {$this->table} SET {$cells} WHERE {$where}";
+
+        //return $this->sqlQuery;
+
+        return $this->executeQuery($arrayData);
+
+    }
+
     private function executeQuery($arrayData){
 
         $sth = $this->connection->prepare($this->sqlQuery);
@@ -47,7 +63,6 @@ class Queries{
             }
             $sth->bindParam(":$key", $value);
         }
-
         $sth->execute();
         $this->clearSqlQuery();
         return $sth->rowCount();
