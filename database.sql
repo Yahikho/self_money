@@ -13,3 +13,5 @@ INSERT INTO self_money.users (user_name, user_password) VALUES ('jhon.bermudez',
 
 
 /*DROP TABLE users_login;*/
+
+CREATE TABLE self_money.types_expenses();

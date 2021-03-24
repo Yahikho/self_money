@@ -23,7 +23,7 @@
     <h3 class="title-form"> Sign Up</h3>
         <form id="formSignup" class="form-basic">
             <p class="data-user">User Name</p>
-            <input type="text" name="user_name" maxlength="20"  placeholder="jhon.example"  onkeyup="javascript:this.value=this.value.toLowerCase();">
+            <input type="text" name="user_name" maxlength="20"  placeholder="  jhon.example"  onkeyup="javascript:this.value=this.value.toLowerCase();">
             <p class="data-user">Password</p>
             <input type="password" name="user_password" maxlength="20" >
             <button class="btnCommon" id="btnSingUp" type="submit">Sing Up</button>

@@ -1,0 +1,26 @@
+.modal-view{
+    display: none; 
+	position: fixed; 
+	padding-top: 100px;	
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; 
+	background-color: rgba(0,0,0,0.3);
+}
+
+.modal-view .model-content{
+    background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid lightgray;
+	width: 60%;
+	transition: 2s;
+}
+
+.modal-view .close-model {
+    color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}

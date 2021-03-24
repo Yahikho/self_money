@@ -23,12 +23,12 @@ $respouseUserExist = $editProfileModel->callRowUserNewUser();
 $respousePassword = $editProfileModel->callRowUserPassword();
 
 
-if(!empty($newUserName || !empty($newUserPassword)) || !empty($userPassword)){
+if(!empty($newUserName) && !empty($newUserPassword) && !empty($userPassword)){/*!empty($newUserName && !empty($newUserPassword)) && !empty($userPassword)){*/
 
     if($newUserName == $userName || empty($respouseUserExist)){
 
         if(strlen($newUserName) > 20 && strlen($newUserPassword > 20)){
-    
+            //print_r(strlen($newUserName));
             echo json_encode(array("respounse"=>"dataTypeLong"));
 
         }else{
