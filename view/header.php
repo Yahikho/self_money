@@ -15,7 +15,7 @@
 <header>
 <form action="" method="POST" class="form_header" >
         <a class="back-home link-header" href="home.php">Home</a>
-        <a class="edit-data link-header" href="home.php">Test</a>
+        <a class="edit-data link-header" href="edit_types.php">Edit Types</a>
         <button type="submit" name="signOut">Sign Out</button>
         <p class="user-name"><a href="edit_profile.php"><?=$_SESSION['user_name']?></a></p>
 </form>
