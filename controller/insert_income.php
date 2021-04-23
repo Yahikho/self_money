@@ -6,7 +6,8 @@ $typeIncome = $_POST['type_income'];
 $descriptionTypeIncome = $_POST['description_income'];
 
 $dataIncome = [
-    "description_income" => $descriptionTypeIncome
+    "description_income" => $descriptionTypeIncome,
+    "type_income" => $typeIncome
 ];
 
 if(empty($typeIncome) || empty($descriptionTypeIncome)){
