@@ -9,8 +9,24 @@ $dataIncome = [
     "description_income" => $descriptionTypeIncome
 ];
 
-$insertIncomeModel = new insertIncomeModel($dataIncome);
 
-$respounse = $insertIncomeModel->returnRespounseInsert();
+if(!empty($typeIncome) || !empty($descriptionTypeIncome)){
 
-echo json_encode(array($respounse));
+    $insertIncomeModel = new insertIncomeModel($dataIncome);
+    $respounse = $insertIncomeModel->returnRespounseInsert();
+
+    if($respounse){
+
+        echo json_encode(array("respounse"=>"success"));
+
+    }else{
+        
+        echo json_encode(array("respounse"=>"failed"));
+
+    }
+
+}else{
+
+    echo json_encode(array("respounse"=>"dataNull"));
+
+}

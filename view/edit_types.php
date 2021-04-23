@@ -12,7 +12,7 @@
 <body>
     <div class="edit-income">
         <p class = "title-types">Edit income</p>
-        <form id="formCost" class="form-types">
+        <form id="formIncome" class="form-types">
             <div class="cost-income">
                 <label>
                     <input type="radio" name="type_income" value="passive">
