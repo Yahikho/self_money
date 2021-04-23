@@ -10,6 +10,7 @@ class insertIncomeModel {
         $this->query = new Queries($this->table);
     }
 
+
     public function returnRespounseInsert(){
 
         if(empty($this->callRowIfExist())){

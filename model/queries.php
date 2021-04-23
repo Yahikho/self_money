@@ -79,6 +79,7 @@ class Queries{
         $sth = $this->connection->prepare($sql);
         $sth->execute();
         $this->clearSqlQuery();
-        return  $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+;
     }
 }

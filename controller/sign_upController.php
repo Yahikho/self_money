@@ -54,7 +54,7 @@ if(!empty($userName) || !empty($userPassword)){
 
 }else{
 
-    echo json_encode(array("respounse"=>"dataNull"));
+    echo json_encode(array("respounse"=>"empty"));
 
 }
 
