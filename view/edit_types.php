@@ -10,33 +10,28 @@
     include_once 'header.php';
 ?>
 <body>
-    <div class="edit-types">
-        <div class="sections-types edit-cost">
-            <p class = "title-types">Edit Cost</p>
-            <div class="type-cost">
+    <div class="edit-income">
+        <p class = "title-types">Edit income</p>
+        <form id="formCost" class="form-types">
+            <div class="cost-income">
                 <label>
-                    <input type="radio" name="type-cost">
-                    Expensses
-                </label>
-                <label>
-                    <input type="radio" name="type-cost">
-                    Costs
-                </label>
-            </div>
-        </div>
-        <div class="sections-types edit-income">
-            <p class = "title-types">Edit income</p>
-            <div class="type-income">
-                <label>
-                    <input type="radio" name="type-income" >
+                    <input type="radio" name="type_income" value="passive">
                     Passive income
                 </label>
                 <label>
-                    <input type="radio" name="type-income">
+                    <input type="radio" name="type_income" value="active">
                     Active income
                 </label>
+                <input type="text" name="description_income">
+                <button class="btnCommon" id="btnSaveIncome" type="submit">Save</button>
             </div>
+        </form>
+        <div class="messages_">
+            <p id = "message"></p>
         </div>
     </div>
 </body>
+<footer>
+    <script src="../js/insert_income.js"></script>
+</footer>
 </html>

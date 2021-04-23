@@ -74,4 +74,11 @@ class Queries{
 
     }
 
+    public function listData(){
+        $sql = "SELECT * FROM `{$this->table}`";
+        $sth = $this->connection->prepare($sql);
+        $sth->execute();
+        $this->clearSqlQuery();
+        return  $sth->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

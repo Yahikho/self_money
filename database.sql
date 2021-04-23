@@ -14,9 +14,8 @@ INSERT INTO self_money.users (user_name, user_password) VALUES ('jhon.bermudez',
 
 /*DROP TABLE users_login;*/
 
-create table self_money.types_costs(id_costs int(4) auto_increment primary key,
-									type_cost varchar(15) not null,
-                                    name_cost varchar(30) not null 
+create table self_money.types_incomes(id_incomes int(4) auto_increment primary key,
+                                    description_income varchar(30) not null 
 )
 
 create table self_money.types_costs(id_costs int(4) auto_increment primary key,
