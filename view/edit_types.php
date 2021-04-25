@@ -22,31 +22,31 @@
                     <input type="radio" name="type_income" value="actives">
                     Active income
                 </label>
-                <input type="text" name="description_income" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                <input type="text" name="description_income" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
                 <button class="btnCommon" id="btnSaveIncome" type="submit">Save Income</button>
             </div>
         </form>
-        <div class="messages_">
-            <p id = "message"></p>
-        </div>
     </div>
     <div class="edit-cost">
         <p class = "title-types">Edit Costs</p>
         <form id="formCosts" class="form-types">
             <div class="costs">
                 <label>
-                    <input type="radio" name="type_income" value="costs" checked>
+                    <input type="radio" name="type_cost" value="costs" checked>
                     Costs
                 </label>
                 <label>
-                    <input type="radio" name="type_income" value="expenses">
+                    <input type="radio" name="type_cost" value="expenses">
                     Expensses
                 </label>
-                <input type="text" name="description_costs" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                <input type="text" name="description_cost" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
                 <button class="btnCommon" id="btnSaveIncome" type="submit">Save Cost</button>
             </div>
         </form>
     </div>
+    <div class="messages_">
+            <p id = "message"></p>
+        </div>
 </body>
 <footer>
     <script src="../js/insert_income.js"></script>
