@@ -26,6 +26,17 @@
                 <button class="btnCommon" id="btnSaveIncome" type="submit">Save Income</button>
             </div>
         </form>
+        <table id="tblIncome">
+            <thead>
+                <tr>
+                    <th>Descripcion Income</th>
+                    <th>Type Income</th>
+                    <th>Options Income</th>
+                </tr>
+            </thead>
+            <tbody id="tbdIncome">
+            </tbody>
+        </table>
     </div>
     <div class="edit-cost">
         <p class = "title-types">Edit Costs</p>
@@ -43,12 +54,23 @@
                 <button class="btnCommon" id="btnSaveIncome" type="submit">Save Cost</button>
             </div>
         </form>
+        <table id="tblCost">
+            <thead>
+                <tr>
+                    <th>Descripcion Income</th>
+                    <th>Type Income</th>
+                    <th>Options Income</th>
+                </tr>
+            </thead>
+            <tbody id="tbdCost">
+            </tbody>
+        </table>
     </div>
     <div class="messages_">
             <p id = "message"></p>
         </div>
 </body>
 <footer>
-    <script src="../js/insert_income.js"></script>
+    <script src="../js/insert_types.js"></script>
 </footer>
 </html>

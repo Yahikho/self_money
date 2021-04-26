@@ -5,28 +5,50 @@ include_once '../model/insert_costModel.php';
 $typeCost = $_POST['type_cost'];
 $descriptionTypeCost = $_POST['description_cost'];
 
+$idTypeDelete = file_get_contents('php://input');
+
 $dataIncome = [
     "description_cost" => $descriptionTypeCost,
     "type_cost" => $typeCost
 ];
 
-if(empty($typeCost) || empty($descriptionTypeCost)){
+if(empty($idTypeDelete)){
 
-    echo json_encode(array("respounse"=>"empty"));
+    if(empty($typeCost) || empty($descriptionTypeCost)){
+
+        echo json_encode(array("respounse"=>"empty"));
+    
+    }else{
+    
+        $insertCostModel = new insertCostModel($dataIncome);
+        $respounse = $insertCostModel->returnRespounseInsert();
+    
+        if($respounse){
+    
+            echo json_encode(array("respounse"=>"success"));
+    
+        }else{
+            
+            echo json_encode(array("respounse"=>"failed"));
+    
+        }
+    
+    }
 
 }else{
 
-    $insertCostModel = new insertCostModel($dataIncome);
-    $respounse = $insertCostModel->returnRespounseInsert();
+    include_once '../model/queries.php';
 
-    if($respounse){
+    $infoDelete = ["column"=>"id_cost",
+                    "value"=> $idTypeDelete
+                ];
 
-        echo json_encode(array("respounse"=>"success"));
+    $queries = new Queries('types_costs');
+    $funDelete = $queries->deleteData($infoDelete);
 
-    }else{
-        
-        echo json_encode(array("respounse"=>"failed"));
+    if($funDelete){
 
+        echo "deleted";
     }
 
 }

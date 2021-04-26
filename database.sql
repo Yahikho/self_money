@@ -14,12 +14,12 @@ INSERT INTO self_money.users (user_name, user_password) VALUES ('jhon.bermudez',
 
 /*DROP TABLE users_login;*/
 
-create table self_money.types_incomes(id_incomes int(4) auto_increment primary key,
+create table self_money.types_incomes(id_income int(4) auto_increment primary key,
                                     description_income varchar(30) not null 
-)
+);
 
 
-ALTER TABLE self_money.types_incomes ADD type_income VARCHAR(20)
+ALTER TABLE self_money.types_incomes ADD type_income VARCHAR(20);
 
 
 create table self_money.types_costs(id_cost int(4) auto_increment primary key,

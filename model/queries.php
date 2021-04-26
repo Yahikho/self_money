@@ -53,20 +53,7 @@ class Queries{
 
     }
 
-    private function executeQuery($arrayData){
 
-        $sth = $this->connection->prepare($this->sqlQuery);
-
-        foreach($arrayData as $key => &$value){
-            if(empty($value)){
-                $value = null;
-            }
-            $sth->bindParam(":$key", $value);
-        }
-        $sth->execute();
-        $this->clearSqlQuery();
-        return $sth->rowCount();
-    }
 
     private function clearSqlQuery(){
 
@@ -80,6 +67,30 @@ class Queries{
         $sth->execute();
         $this->clearSqlQuery();
         return $sth->fetchAll(PDO::FETCH_ASSOC);
-;
+    }
+
+    public function deleteData($infoDelete){
+
+        $this->sqlQuery = "DELETE FROM {$this->table} WHERE {$infoDelete['column']} = {$infoDelete['value']}";
+        $rows = $this->executeQuery();
+        return $rows;
+        // $sql = "DELETE FROM {$this->table} WHERE {$infoDelete['column']} = {$infoDelete['value']}";
+        // return $sql;
+
+    }
+
+    private function executeQuery($arrayData = null){
+
+        $sth = $this->connection->prepare($this->sqlQuery);
+
+        foreach($arrayData as $key => &$value){
+            if(empty($value)){
+                $value = null;
+            }
+            $sth->bindParam(":$key", $value);
+        }
+        $sth->execute();
+        $this->clearSqlQuery();
+        return $sth->rowCount();
     }
 }
