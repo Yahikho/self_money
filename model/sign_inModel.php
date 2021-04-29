@@ -31,7 +31,7 @@ class SignInMoldel  {
         // $sth->bindParam(':userpassword',$this->dataUser['password'], PDO::PARAM_STR);
 
         $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_OBJ);
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
     }
 
 

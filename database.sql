@@ -19,10 +19,19 @@ create table self_money.types_incomes(id_income int(4) auto_increment primary ke
 );
 
 
-ALTER TABLE self_money.types_incomes ADD type_income VARCHAR(20);
+ALTER TABLE self_money.types_incomes ADD type_income VARCHAR NOT NULL(20);
 
 
 create table self_money.types_costs(id_cost int(4) auto_increment primary key,
                                     description_cost varchar(30) not null,
                                     type_cost varchar(20) not null
 );
+
+alter table self_money.types_costs add user_id int (6);
+
+ALTER TABLE self_money.types_costs ADD constraint fk_costs_users foreign key (user_id) references users(user_id);
+
+alter table self_money.types_incomes add column user_id int(6);
+alter table self_money.types_incomes add constraint fk_income_users foreign key (user_id) references users(user_id);
+
+alter table self_money.types_incomes modify user_id int(6) not null;

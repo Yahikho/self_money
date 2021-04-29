@@ -1,5 +1,5 @@
-listDataIncomes();
 listDataCosts();
+listDataIncomes();
 
 let formSaveCosts = document.getElementById('formCosts');
 let formSaveIncome = document.getElementById('formIncome');
@@ -44,7 +44,6 @@ formSaveCosts.addEventListener('submit', (e) => {
     })
     .then(res => res.json())
     .then(({respounse}) =>{
-
         switch(respounse){
             case  'success' :
                 labelMessage.innerHTML = "Saved successfully";
@@ -55,6 +54,7 @@ formSaveCosts.addEventListener('submit', (e) => {
             case  'failed' :
                 labelMessage.innerHTML = "Type already exist";
                 showMessage();
+                console.log(respounse);
             break
             case  'empty' :
                 labelMessage.innerHTML = "Field must be full";

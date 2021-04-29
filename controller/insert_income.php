@@ -1,6 +1,10 @@
 <?php
 
+session_start();
+
 include_once '../model/insert_incomeModel.php';
+
+$userId = (int)$_SESSION['user_id'];
 
 $typeIncome = $_POST['type_income'];
 $descriptionTypeIncome = $_POST['description_income'];
@@ -9,7 +13,8 @@ $idTypeDelete = file_get_contents('php://input');
 
 $dataIncome = [
     "description_income" => $descriptionTypeIncome,
-    "type_income" => $typeIncome
+    "type_income" => $typeIncome,
+    "user_id" => $userId
 ];
 
 if(empty($idTypeDelete)){

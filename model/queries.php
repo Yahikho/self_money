@@ -74,8 +74,6 @@ class Queries{
         $this->sqlQuery = "DELETE FROM {$this->table} WHERE {$infoDelete['column']} = {$infoDelete['value']}";
         $rows = $this->executeQuery();
         return $rows;
-        // $sql = "DELETE FROM {$this->table} WHERE {$infoDelete['column']} = {$infoDelete['value']}";
-        // return $sql;
 
     }
 

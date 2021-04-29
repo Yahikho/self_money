@@ -3,10 +3,9 @@
     session_start();
     if(isset($_POST['signOut'])){
         unset($_SESSION['user_name']);
+        unset($_SESSION['user_id']);
         header('Location: sign_in.php');
     }
-?>
-<?php
     if(isset($_SESSION['user_name'])){
 ?>
 <link rel="preconnect" href="https://fonts.gstatic.com">

@@ -1,9 +1,17 @@
 <?php
 include_once '../model/queries.php';
 
-$respounse = new Queries('types_costs');
-$rta = $respounse->listData();
+session_start();
+$userId = $_SESSION['user_id'];
 
+$respounse = new Queries('types_costs');
+
+$dataSerarch = [
+    "column"=> "user_id",
+    "value" => $userId
+];
+
+$rta = $respounse->searchRowSimple($dataSerarch);
 
 foreach($rta as $data){
     echo "<tr>
@@ -15,6 +23,5 @@ foreach($rta as $data){
           </tr>  
     ";
 }
-
 
 //echo json_encode($rta);

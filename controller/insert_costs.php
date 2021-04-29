@@ -1,15 +1,20 @@
 <?php
 
+session_start();
+
 include_once '../model/insert_costModel.php';
 
 $typeCost = $_POST['type_cost'];
 $descriptionTypeCost = $_POST['description_cost'];
 
+$userId = (int)$_SESSION['user_id'];
+
 $idTypeDelete = file_get_contents('php://input');
 
 $dataIncome = [
     "description_cost" => $descriptionTypeCost,
-    "type_cost" => $typeCost
+    "type_cost" => $typeCost,
+    "user_id" => $userId
 ];
 
 if(empty($idTypeDelete)){
