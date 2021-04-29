@@ -18,6 +18,16 @@ class Queries{
 //Para wheres simples: SELECT * FROM table1 WHERE id = 1;
 //values es la condicion, en este ejemplo anterior seria 'id'
 
+    public function serachDataWithAnd($arraySerach){
+        $sql = "SELECT * FROM {$this->table} WHERE {$arraySerach['columnOne']} = '{$arraySerach['valueOne']}' AND
+            {$arraySerach['columnTwo']} = '{$arraySerach['valueTwo']}'
+        ";
+        $sth = $this->connection->prepare($sql);
+        $sth->execute();
+        $this->clearSqlQuery();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function searchRowSimple($arrayData){
 
         $sql = "SELECT * FROM {$this->table} WHERE {$arrayData['column']} = '{$arrayData['value']}'";

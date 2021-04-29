@@ -28,12 +28,14 @@ class insertCostModel {
     private function callRowIfExist(){
 
         $arrayDataUsers = [
-            "column"=>"description_cost",
-            "value"=>$this->dataIncome['description_cost']
+            "columnOne"=>"user_id",
+            "valueOne"=>$this->dataIncome['user_id'],
+            "columnTwo"=>"description_cost",
+            "valueTwo"=>$this->dataIncome['description_cost']
         ];
 
         $row = $this->query;
-        $respounseCallRowIfExist = $row->searchRowSimple($arrayDataUsers);
+        $respounseCallRowIfExist = $row->serachDataWithAnd($arrayDataUsers);
 
         return $respounseCallRowIfExist;
 
