@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../../css/common.css">
     <title>Sign In</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
             <input type="text" name="user_name" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();" >
             <p class="data-user">Password</p>
             <input type="password" name="user_password" >
-            <button class="btnCommon" id="btnSingUp" type="submit">Sing In</button>
+            <button class="btnCommon" id="btnSingIn" type="submit">Sing In</button>
         </form>
         <div class="messages_">
             <p id = "message"></p>
@@ -33,6 +33,6 @@
     </div>
 </body>
 <footer>
-    <script src="../js/sign_in.js"></script>
+    <script src="../../js/profile/sign_in.js"></script>
 </footer>
 </html>

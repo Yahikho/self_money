@@ -6,7 +6,7 @@ formSignUpdate.addEventListener('submit', (e) =>{
 
     let data = new FormData(formSignUpdate);
 
-    fetch('../controller/edit_profile_controller.php', {
+    fetch('../controller/profile/edit_profile_controller.php', {
         method : 'POST',
         body : data
     })

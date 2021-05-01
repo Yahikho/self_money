@@ -1,6 +1,6 @@
 <?php
 
-include_once '../model/edit_profileModel.php';
+include_once '../../model/Model.php';
 
 session_start();
 $userName = $_SESSION['user_name'];

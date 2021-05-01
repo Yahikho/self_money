@@ -1,6 +1,5 @@
 <?php
-
-include_once '../model/sign_inModel.php';
+include_once '../../model/sign_inModel.php';
 
 $userName = $_POST['user_name'];
 $userPassword = $_POST['user_password'];
