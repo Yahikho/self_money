@@ -19,7 +19,7 @@ create table self_money.types_incomes(id_income int(4) auto_increment primary ke
 );
 
 
-ALTER TABLE self_money.types_incomes ADD type_income VARCHAR NOT NULL(20);
+ALTER TABLE self_money.types_incomes ADD type_income VARCHAR(20) NOT NULL;
 
 
 create table self_money.types_costs(id_cost int(4) auto_increment primary key,

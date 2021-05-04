@@ -4,7 +4,7 @@
     if(isset($_POST['signOut'])){
         unset($_SESSION['user_name']);
         unset($_SESSION['user_id']);
-        header('Location: /profile/sign_in.php');
+        header('Location: sign_in.php');
     }
     if(isset($_SESSION['user_name'])){
 ?>
@@ -16,11 +16,11 @@
         <a class="back-home link-header" href="home.php">Home</a>
         <a class="edit-data link-header" href="edit_types.php">Edit Types</a>
         <button type="submit" name="signOut">Sign Out</button>
-        <p class="user-name"><a href="/profile/edit_profile.php"><?=$_SESSION['user_name']?></a></p>
+        <p class="user-name"><a href="edit_profile.php"><?=$_SESSION['user_name']?></a></p>
 </form>
 </header>
 <?php
 }else{
-    header('Location: profile/sign_in.php');
+    header('Location: sign_in.php');
 }
 ?>

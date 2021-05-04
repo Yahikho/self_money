@@ -5,7 +5,7 @@ let labelMessage = document.getElementById('message');
 formSignUp.addEventListener('submit', (e) => {
     e.preventDefault();
     var data = new FormData(formSignUp);
-    fetch('../../controller/profile/sign_upController.php',{
+    fetch('../controller/sign_upController.php',{
         method : 'POST',
         body : data
     })

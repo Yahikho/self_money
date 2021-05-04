@@ -1,3 +1,3 @@
 <?php
 
-header('Location: profile/sign_in.php');
+header('Location: sign_in.php');

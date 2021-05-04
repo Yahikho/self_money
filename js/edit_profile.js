@@ -6,13 +6,12 @@ formSignUpdate.addEventListener('submit', (e) =>{
 
     let data = new FormData(formSignUpdate);
 
-    fetch('../controller/profile/edit_profile_controller.php', {
+    fetch('../controller/edit_profile_controller.php', {
         method : 'POST',
         body : data
     })
     .then(res => res.json())
     .then(({respounse}) => {
-
         switch(respounse){
 
             case  'success' :

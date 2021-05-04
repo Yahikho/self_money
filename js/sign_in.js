@@ -5,14 +5,14 @@ formSignIn.addEventListener('submit', (e) =>{
     e.preventDefault();
 
     var data = new FormData(formSignIn);
-    fetch('../../controller/profile/sign_in_controller.php',{
+    fetch('../controller/sign_in_controller.php',{
         method: 'POST',
         body:data
     })
     .then(Response => Response.json())
     .then( ({respounse})  =>{
         if(respounse === 'success'){
-            location.href = '../home.php'
+            location.href = 'home.php'
         }else{
             labelMessage.innerHTML = 'Incorrect username or password.';
             cleanInputs();
