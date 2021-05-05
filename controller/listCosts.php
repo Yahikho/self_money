@@ -13,15 +13,19 @@ $dataSerarch = [
 
 $rta = $respounse->searchRowSimple($dataSerarch);
 
+
 foreach($rta as $data){
     echo "<tr>
-            <td>". $data['description_cost']. "</td>
-            <td>". $data['type_cost']. "</td>
+            <td><p onclick=updateTypeCost('". $data['id_cost']."')>".$data['description_cost']."</p></td>
+            <td>". $data['type_cost']."</td>
             <td> 
-              <button type='button' class='btnDeleteType' onclick=deleteTypeCost('". $data['id_cost']."')>Delete</button<</td>
-              <button type='button' class='btnDeleteType' onclick=updateTypeCost('". $data['id_cost']."')>Update</button<</td>
+              <button type='button' class='btnDeleteType' onclick=deleteTypeCost('". $data['id_cost']."')>Delete</button>
+              <button type='button' class='btnDeleteType' onclick=updateTypeCost()>Update</button>
+            </td>
           </tr>  
     ";
 }
+
+//<td>". $data['description_cost']. "</td>
 
 //echo json_encode($rta);

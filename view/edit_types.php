@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edite Types</title>
+    <link rel="stylesheet" href="../css/modal.css">
 </head>
 <?php 
     include_once 'header.php';
@@ -68,7 +69,13 @@
     </div>
     <div class="messages_">
             <p id = "message"></p>
+    </div>
+    <div class="modal-view" id="mdlUpCosts">
+        <div class="model-content">
+            <span class="close-model">X</span>
+            <p></p>
         </div>
+    </div>
 </body>
 <footer>
     <script src="../js/insert_types.js"></script>

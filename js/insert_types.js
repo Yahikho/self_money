@@ -108,7 +108,23 @@ function updateTypeIncome(idIncome){
     
 }
 
-function updateTypeCost(idCost){}
+function updateTypeCost(){
+    let modal = document.getElementById('mdlUpCosts');
+    let btnEquiz = document.getElementsByClassName('close-model')[0];
+
+    modal.style.display = "block";
+    
+    btnEquiz.onclick = () => {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+}
 
 
 function listDataIncomes(search){
@@ -145,4 +161,28 @@ function cleanInputsIcome(){
 
 function cleanInputsCost(){
     formSaveCosts['description_cost'].value = "";
+}
+
+
+//Primer Modal
+
+if(document.getElementById("btnUpdateCost")){
+    // let modal = document.getElementById('mdlUpCosts');
+    // let btn = document.getElementById("btnUpdateCost");
+    // let btnEquiz = document.getElementsByClassName('close-model')[0];
+
+    // btn.onclick = () => {
+    //     modal.style.display = "block";
+    // }
+    // btnEquiz.onclick = () => {
+    //     modal.style.display = "none";
+    // }
+
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
+    alert('tred')
+    
 }
