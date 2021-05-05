@@ -10,7 +10,7 @@ formSignIn.addEventListener('submit', (e) =>{
         body:data
     })
     .then(Response => Response.json())
-    .then( ({respounse})  =>{
+    .then(({respounse})  =>{
         if(respounse === 'success'){
             location.href = 'home.php'
         }else{

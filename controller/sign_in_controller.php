@@ -13,13 +13,15 @@ $dataUser = [
 $signInModel = new SignInMoldel($dataUser);
 
 $respouse = $signInModel->getDataUser();
-$userId = $respouse[0]["user_id"];
 
 if(empty($respouse)){
-    echo json_encode(array("respounse"=>"failed"));
-}else{
-    session_start();
 
+    echo json_encode(array("respounse"=>"failed"));
+
+}else{
+
+    $userId = $respouse[0]["user_id"];
+    session_start();
     $_SESSION['user_id'] = $userId;
     $_SESSION['user_name'] = $userName;
     echo json_encode(array("respounse"=>"success"));
