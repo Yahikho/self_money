@@ -16,11 +16,11 @@ $rta = $respounse->searchRowSimple($dataSerarch);
 
 foreach($rta as $data){
     echo "<tr>
-            <td><p onclick=updateTypeCost('". $data['id_cost']."')>".$data['description_cost']."</p></td>
+            <td>".$data['description_cost']."</td>
             <td>". $data['type_cost']."</td>
             <td> 
               <button type='button' class='btnDeleteType' onclick=deleteTypeCost('". $data['id_cost']."')>Delete</button>
-              <button type='button' class='btnDeleteType' onclick=updateTypeCost()>Update</button>
+              <button type='button' class='btnDeleteType' onclick=updateTypeCost('".$data['id_cost']."')>Update</button>
             </td>
           </tr>  
     ";

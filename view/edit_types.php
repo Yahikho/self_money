@@ -73,7 +73,17 @@
     <div class="modal-view" id="mdlUpCosts">
         <div class="model-content">
             <span class="close-model">X</span>
-            <p></p>
+                <form id="mdlEditCost">
+                    <label>
+                        <input type="radio" name="edit_type_cost" value="cost">
+                        Costs
+                    </label>
+                    <label>
+                        <input type="radio" name="edit_type_cost" value="expenses">
+                        Expensses
+                    </label>
+                    <input type="text" name="edit_description_cost" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                </form>
         </div>
     </div>
 </body>

@@ -108,7 +108,8 @@ function updateTypeIncome(idIncome){
     
 }
 
-function updateTypeCost(){
+function updateTypeCost(idCost){
+    
     let modal = document.getElementById('mdlUpCosts');
     let btnEquiz = document.getElementsByClassName('close-model')[0];
 
@@ -124,8 +125,21 @@ function updateTypeCost(){
         }
     }
 
+    callDataCost(idCost);
+
+
 }
 
+function callDataCost(idCost){
+    fetch('../controller/edit_cost.php',{
+        method:'POST',
+        body : idCost
+    })
+    .then(res => res.json())
+    .then(respounse => {
+        console.log(respounse);
+    })
+}
 
 function listDataIncomes(search){
     fetch('../controller/listIncome.php',{
