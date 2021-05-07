@@ -2,8 +2,8 @@
 
 include_once 'queries.php';
 
-class EditCost{
-    private $table = 'types_costs';
+class EditIncome{
+    private $table = 'types_incomes';
     private $query;
 
     function __construct($dataCost){
@@ -11,10 +11,10 @@ class EditCost{
         $this->query = new Queries($this->table);
     }
 
-    public function returnDataCost(){
+    public function returnDataIncome(){
         $row = $this->query;
-        $arrayCost = ["column"=>"id_cost",
-                    "value"=>$this->dataCost['id_cost']
+        $arrayCost = ["column"=>"id_income",
+                    "value"=>$this->dataCost['id_income']
         ];
 
         $rtaDataCost = $row->searchRowSimple($arrayCost);

@@ -24,7 +24,7 @@
                     Active income
                 </label>
                 <input type="text" name="description_income" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
-                <button class="btnCommon" id="btnSaveIncome" type="submit">Save Income</button>
+                <button class="btnCommon" id="btnSaveIncome" type="submit">Submit Income</button>
             </div>
         </form>
         <table id="tblIncome">
@@ -52,7 +52,7 @@
                     Expensses
                 </label>
                 <input type="text" name="description_cost" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
-                <button class="btnCommon" id="btnSaveIncome" type="submit">Save Cost</button>
+                <button class="btnCommon" id="btnSaveIncome" type="submit">Submit Cost</button>
             </div>
         </form>
         <table id="tblCost">
@@ -72,20 +72,38 @@
     </div>
     <div class="modal-view" id="mdlUpCosts">
         <div class="model-content">
-            <span class="close-model">X</span>
+            <span class="close-model close-model-costs">X</span>
                 <form id="mdlEditCost">
                     <label>
-                        <input type="radio" name="edit_type_cost" value="cost">
+                        <input type="radio" name="edit_type_cost" value="costs" id="radCosts">
                         Costs
                     </label>
                     <label>
-                        <input type="radio" name="edit_type_cost" value="expenses">
+                        <input type="radio" name="edit_type_cost" value="expenses" id="radExpenses">
                         Expensses
                     </label>
                     <input type="text" name="edit_description_cost" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
                 </form>
         </div>
     </div>
+
+    <div class="modal-view" id="mdlUpIncome">
+        <div class="model-content">
+            <span class="close-model close-model-incomes">X</span>
+                <form id="mdlEditIncome">
+                    <label>
+                        <input type="radio" name="edit_type_income" value="pasives" id="radPasives">
+                        Passive
+                    </label>
+                    <label>
+                        <input type="radio" name="edit_type_income" value="actives" id="radActives">
+                        Active
+                    </label>
+                    <input type="text" name="edit_description_income" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                </form>
+        </div>
+    </div>
+
 </body>
 <footer>
     <script src="../js/insert_types.js"></script>

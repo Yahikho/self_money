@@ -3,6 +3,9 @@ listDataIncomes();
 
 let formSaveCosts = document.getElementById('formCosts');
 let formSaveIncome = document.getElementById('formIncome');
+let formEditCosts = document.getElementById('mdlEditCost');
+let formEditIncomes = document.getElementById('mdlEditIncome');
+
 let labelMessage = document.getElementById('message');
 
 formSaveIncome.addEventListener('submit', (e) => {
@@ -105,13 +108,48 @@ function deleteTypeCost(idCost){
 
 
 function updateTypeIncome(idIncome){
+
+    let modal = document.getElementById('mdlUpIncome');
+    let btnEquiz = document.getElementsByClassName('close-model-incomes')[0];
+
+    modal.style.display = "block";
     
+    btnEquiz.onclick = () => {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    callDataIncome(idIncome);
 }
 
+function callDataIncome(idIncome){
+    fetch('../controller/edit_income.php',{
+        method:'POST',
+        body : idIncome
+    })
+    .then(res => res.json())
+    .then(respounse => {
+        if(respounse){
+            if(respounse[0]['type_income'] === "pasives"){
+                document.getElementById('radPasives').checked = true;
+            }else{
+                document.getElementById('radActives').checked = true;
+            }
+            formEditIncomes['edit_description_income'].value = respounse[0]['description_income'];
+        }else{
+            console.log('surgio un error');
+        }
+    })
+}
 function updateTypeCost(idCost){
     
     let modal = document.getElementById('mdlUpCosts');
-    let btnEquiz = document.getElementsByClassName('close-model')[0];
+    let btnEquiz = document.getElementsByClassName('close-model-costs')[0];
 
     modal.style.display = "block";
     
@@ -137,7 +175,16 @@ function callDataCost(idCost){
     })
     .then(res => res.json())
     .then(respounse => {
-        console.log(respounse);
+        if(respounse){
+            if(respounse[0]['type_cost'] === "costs"){
+                document.getElementById('radCosts').checked = true;
+            }else{
+                document.getElementById('radExpenses').checked = true;
+            }
+            formEditCosts['edit_description_cost'].value = respounse[0]['description_cost'];
+        }else{
+            console.log('surgio un error');
+        }
     })
 }
 
@@ -175,28 +222,4 @@ function cleanInputsIcome(){
 
 function cleanInputsCost(){
     formSaveCosts['description_cost'].value = "";
-}
-
-
-//Primer Modal
-
-if(document.getElementById("btnUpdateCost")){
-    // let modal = document.getElementById('mdlUpCosts');
-    // let btn = document.getElementById("btnUpdateCost");
-    // let btnEquiz = document.getElementsByClassName('close-model')[0];
-
-    // btn.onclick = () => {
-    //     modal.style.display = "block";
-    // }
-    // btnEquiz.onclick = () => {
-    //     modal.style.display = "none";
-    // }
-
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
-    alert('tred')
-    
 }

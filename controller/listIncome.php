@@ -19,7 +19,7 @@ foreach($rta as $data){
             <td>". $data['type_income']. "</td>
             <td> 
                 <button  type='button' class='btnDeleteType' onclick=deleteTypeIncome('". $data['id_income']."')>Delete</button>
-                <button  type='button' class='btnDeleteType' onclick=updateTypeIncome('". $data['id_income']."')>Update</button>
+                <button  type='button' class='btnDeleteType' onclick=updateTypeIncome('". $data['id_income']."')>Edit</button>
             </tr>
     ";
 }
