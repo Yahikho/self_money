@@ -83,9 +83,10 @@
                         Expensses
                     </label>
                     <input type="text" name="edit_description_cost" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                    <input type="hidden" name="id_cost">
                     <button class="btnCommon" id="btnEditCost" type="submit">Edit Cost</button>
                     <div id="message_modal">
-                        <p id="print_messge"></p>
+                        <p id="print_message"></p>
                     </div>
                 </form>
         </div>

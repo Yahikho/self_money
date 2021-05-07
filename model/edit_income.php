@@ -45,7 +45,7 @@ class EditIncome{
 
     private function callRowIfExist(){
 
-        $arrayDataUsers = [
+        $arrayDataIncome = [
             "columnOne"=>"description_income",
             "valueOne"=>$this->dataIncome['description_income'],
             "columnTwo"=>"user_id",
@@ -53,7 +53,7 @@ class EditIncome{
         ];
 
         $row = $this->query;
-        $respounseCallRowIfExist = $row->serachDataWithAnd($arrayDataUsers);
+        $respounseCallRowIfExist = $row->serachDataWithAnd($arrayDataIncome);
 
         return $respounseCallRowIfExist;
 

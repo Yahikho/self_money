@@ -165,8 +165,10 @@ formEditIncomes.addEventListener('submit', (e)=>{
         if(respounse === 'success'){
             labelMessageModal.innerHTML = "Edited sucessfuly";
             listDataIncomes();
+            showMessage();
         }else{
             labelMessageModal.innerHTML = "Type income exists";
+            showMessage();
         }
     })
 
@@ -208,11 +210,36 @@ function callDataCost(idCost){
                 document.getElementById('radExpenses').checked = true;
             }
             formEditCosts['edit_description_cost'].value = respounse[0]['description_cost'];
+            formEditCosts['id_cost'].value = respounse[0]['id_cost'];
         }else{
             console.log('surgio un error');
         }
     })
 }
+
+formEditCosts.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    var data = new FormData(formEditCosts);
+
+    fetch('../controller/edit_cost.php',{
+        method : 'POST',
+        body: data
+    })
+    .then(res => res.json())
+    .then(({respounse}) => {
+        if(respounse === 'success'){
+            labelMessageModal.innerHTML = "Edited sucessfuly";
+            listDataCosts();
+            showMessage();
+        }else{
+            labelMessageModal.innerHTML = "Type income exists";
+            showMessage();
+        }
+    })
+
+})
+
 
 function listDataIncomes(search){
     fetch('../controller/listIncome.php',{
@@ -238,7 +265,8 @@ function listDataCosts(search){
 
 const showMessage = () => {
     return setTimeout(()=> {
-       labelMessage.innerHTML = ""
+       labelMessage.innerHTML = "";
+       labelMessageModal.innerHTML = "";
    },2000)
 }
 
