@@ -4,11 +4,15 @@ include_once '../model/edit_cost.php';
 
 $idCost = file_get_contents('php://input');
 
+if(!empty($idCost)){
 
-$dataCost = ["id_cost"=>$idCost];
+    $dataCost = ["id_cost"=>$idCost];
 
-$editCostModel = new EditCost($dataCost);
+    $editCostModel = new EditCost($dataCost);
 
-$getDataCostToId = $editCostModel->returnDataCost();
+    $getDataCostToId = $editCostModel->returnDataCost();
 
-echo json_encode($getDataCostToId);
+    echo json_encode($getDataCostToId);
+
+}
+

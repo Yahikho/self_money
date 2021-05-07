@@ -58,7 +58,7 @@ class Queries{
 
         $this->sqlQuery = "UPDATE {$this->table} SET {$cells} WHERE {$where}";
 
-        //return $this->sqlQuery;
+        //print_r($this->sqlQuery);
 
         return $this->executeQuery($arrayData);
 

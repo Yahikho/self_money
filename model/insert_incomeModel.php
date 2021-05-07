@@ -27,14 +27,15 @@ class insertIncomeModel {
 
     private function callRowIfExist(){
 
-        $arrayDataUsers = [
-            "column"=>"description_income",
-            "value"=>$this->dataIncome['description_income']
+        $arrayDataIncome = [
+            "columnOne"=>"user_id",
+            "valueOne"=>$this->dataIncome['user_id'],
+            "columnTwo"=>"description_income",
+            "valueTwo"=>$this->dataIncome['description_income']
         ];
 
         $row = $this->query;
-        $respounseCallRowIfExist = $row->searchRowSimple($arrayDataUsers);
-
+        $respounseCallRowIfExist = $row->serachDataWithAnd($arrayDataIncome);
         return $respounseCallRowIfExist;
 
     }

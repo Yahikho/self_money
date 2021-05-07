@@ -83,6 +83,10 @@
                         Expensses
                     </label>
                     <input type="text" name="edit_description_cost" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                    <button class="btnCommon" id="btnEditCost" type="submit">Edit Cost</button>
+                    <div id="message_modal">
+                        <p id="print_messge"></p>
+                    </div>
                 </form>
         </div>
     </div>
@@ -91,6 +95,7 @@
         <div class="model-content">
             <span class="close-model close-model-incomes">X</span>
                 <form id="mdlEditIncome">
+                    
                     <label>
                         <input type="radio" name="edit_type_income" value="pasives" id="radPasives">
                         Passive
@@ -100,6 +105,11 @@
                         Active
                     </label>
                     <input type="text" name="edit_description_income" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
+                    <input type="hidden" name="id_income">
+                    <button class="btnCommon" id="btnEditIncome" type="submit">Edit Income</button>
+                    <div id="message_modal">
+                        <p id="print_message"></p>
+                    </div>
                 </form>
         </div>
     </div>

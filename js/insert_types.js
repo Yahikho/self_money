@@ -7,6 +7,7 @@ let formEditCosts = document.getElementById('mdlEditCost');
 let formEditIncomes = document.getElementById('mdlEditIncome');
 
 let labelMessage = document.getElementById('message');
+let labelMessageModal =  document.getElementById('print_message'); 
 
 formSaveIncome.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -118,13 +119,14 @@ function updateTypeIncome(idIncome){
         modal.style.display = "none";
     }
 
-    window.onclick = function(event) {
+    window.onclick = event => {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
 
     callDataIncome(idIncome);
+
 }
 
 function callDataIncome(idIncome){
@@ -141,11 +143,35 @@ function callDataIncome(idIncome){
                 document.getElementById('radActives').checked = true;
             }
             formEditIncomes['edit_description_income'].value = respounse[0]['description_income'];
+            formEditIncomes['id_income'].value = respounse[0]['id_income'];
         }else{
             console.log('surgio un error');
         }
     })
 }
+
+formEditIncomes.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    var data = new FormData(formEditIncomes);
+
+    fetch('../controller/edit_income.php',{
+        method : 'POST',
+        body: data
+    })
+    .then(res => res.json())
+    .then(({respounse}) => {
+        console.log(respounse)
+        if(respounse === 'success'){
+            labelMessageModal.innerHTML = "Edited sucessfuly";
+            listDataIncomes();
+        }else{
+            labelMessageModal.innerHTML = "Type income exists";
+        }
+    })
+
+})
+
 function updateTypeCost(idCost){
     
     let modal = document.getElementById('mdlUpCosts');
