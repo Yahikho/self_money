@@ -19,8 +19,8 @@ foreach($rta as $data){
             <td>".$data['description_cost']."</td>
             <td>". $data['type_cost']."</td>
             <td> 
-              <button type='button' class='btnDeleteType' onclick=deleteTypeCost('". $data['id_cost']."')>Delete</button>
-              <button type='button' class='btnDeleteType' onclick=updateTypeCost('".$data['id_cost']."')>Edit</button>
+              <button type='button' class='btnTypes' onclick=deleteTypeCost('". $data['id_cost']."')>Delete</button>
+              <button type='button' class='btnTypes' onclick=updateTypeCost('".$data['id_cost']."')>Edit</button>
             </td>
           </tr>  
     ";

@@ -25,7 +25,7 @@ class EditCost{
     public function returnRespounse(){
         $rtaRowCost = $this->callRowIfExist();
         if($rtaRowCost){
-            if($rtaRowCost[0]['type_cost'] != $this->dataCost['type_cost'] && $rtaRowCost[0]['id_cost'] == $this->rtaRowCost['id_cost']){
+            if($rtaRowCost[0]['type_cost'] != $this->dataCost['type_cost'] && $rtaRowCost[0]['id_cost'] == $this->dataCost['id_cost']){
                 if(empty($this->updateDataCost())){
                     return false;
                 }else{

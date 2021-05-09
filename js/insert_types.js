@@ -7,7 +7,8 @@ let formEditCosts = document.getElementById('mdlEditCost');
 let formEditIncomes = document.getElementById('mdlEditIncome');
 
 let labelMessage = document.getElementById('message');
-let labelMessageModal =  document.getElementById('print_message'); 
+let labelMessageModalIncome =  document.getElementById('print_message_income');
+let labelMessageModalCost =  document.getElementById('print_message_cost'); 
 
 formSaveIncome.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -161,13 +162,12 @@ formEditIncomes.addEventListener('submit', (e)=>{
     })
     .then(res => res.json())
     .then(({respounse}) => {
-        console.log(respounse)
         if(respounse === 'success'){
-            labelMessageModal.innerHTML = "Edited sucessfuly";
+            labelMessageModalIncome.innerHTML = "Edited sucessfuly";
             listDataIncomes();
             showMessage();
         }else{
-            labelMessageModal.innerHTML = "Type income exists";
+            labelMessageModalIncome.innerHTML = "Type income exists";
             showMessage();
         }
     })
@@ -229,11 +229,11 @@ formEditCosts.addEventListener('submit', (e)=>{
     .then(res => res.json())
     .then(({respounse}) => {
         if(respounse === 'success'){
-            labelMessageModal.innerHTML = "Edited sucessfuly";
+            labelMessageModalCost.innerHTML = "Edited sucessfuly";
             listDataCosts();
             showMessage();
         }else{
-            labelMessageModal.innerHTML = "Type income exists";
+            labelMessageModalCost.innerHTML = "Type income exists";
             showMessage();
         }
     })
@@ -266,7 +266,8 @@ function listDataCosts(search){
 const showMessage = () => {
     return setTimeout(()=> {
        labelMessage.innerHTML = "";
-       labelMessageModal.innerHTML = "";
+       labelMessageModalIncome.innerHTML = "";
+       labelMessageModalCost.innerHTML = "";
    },2000)
 }
 
