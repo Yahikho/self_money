@@ -10,14 +10,25 @@
 </head>
 <?php include 'header.php';?>
 <body>
-    <div class="content_all">
-        <div class="add_">
-            <button id="btnAddCosts">Add Costs</button>
+    <div class="content-user">
+        <div class="enter-value">
+            <form id="submit_value">
+                <input  name="txtValue" tnype="number" placeholder="Enter Values">
+                <label>
+                    <input id="rdaValueIncomes" name="type_value" type="radio" value="incomes">
+                    income
+                </label>
+                <label>
+                    <input id="rdaValueCost" name="type_value"type="radio" value="costs">
+                    cots
+                </label>
+                <select name="" id="select_income">
+                </select>
+                <input type="date" name="record_date" id="value_date">
+                <button id="btnSubmitValue">Submit</button>
+            </form>
         </div>
     </div>
-
-    <!--Modal-->
-     <?php include'modal_expenses.php';?>
 </body>
 <script src="../js/home.js"></script>
 </html>

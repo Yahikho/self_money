@@ -21,11 +21,11 @@
             <div class="income">
                 <label class="description">
                     <input type="radio" name="type_income" value="pasives" checked>
-                    Pasive income
+                    Pasive
                 </label>
                 <label class="description">
                     <input type="radio" name="type_income" value="actives">
-                    Active income
+                    Active
                 </label>
                 <input type="text" class="txtType" name="description_income" maxlength="20" onkeyup="javascript:this.value=this.value.toLowerCase();">
                 <button class="btnTypes" id="btnSaveIncome" type="submit">Submit Income</button>
