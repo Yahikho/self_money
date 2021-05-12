@@ -3,7 +3,25 @@ let radioValueCost = document.getElementById('rdaValueCost');
 let formSubmitIncomes = document.getElementById('submit_value');
 let selectOptions = document.getElementById('select_income');
 let selectDate = document.getElementById('value_date');
+let lableMessage = document.getElementById('message');
 
+function saveValues(){
+
+    let modal = document.getElementById('model-view');
+    let btnEquiz = document.getElementsByClassName('close-model')[0];
+
+    modal.style.display = "block";
+    
+    btnEquiz.onclick = () => {
+        modal.style.display = "none";
+    }
+
+    window.onclick = event => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
 
 if(radioValueIncomes){
     radioValueIncomes.addEventListener("change", (e)=>{
@@ -30,8 +48,26 @@ function callAllTable(typeIncome){
 
 formSubmitIncomes.addEventListener('submit', (e)=>{
     e.preventDefault();
-    var today = new Date();
-    var DateSave = selectDate.value+" "+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
-    console.log(DateSave);
-
+    let data = new FormData(formSubmitIncomes);
+    fetch('../controller/home.php',{
+        method : 'POST',
+        body : data
+    })
+    .then(res => res.json())
+    .then(({respouse}) => {
+        switch(respouse){
+            case 'success':
+                lableMessage.innerHTML = "Submit"
+            break;
+            case 'Failed':
+                lableMessage.innerHTML = "Could not save";
+            break;
+            case 'inputs_empty':
+                lableMessage.innerHTML = "Some inmput is empty";
+            break;
+            case 'not_numeric':
+                lableMessage.innerHTML = "Value must numeric";
+            break;
+        }
+    })
 })

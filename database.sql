@@ -41,7 +41,7 @@ CREATE TABLE self_money.values_incomes(
 	id_value_income INT(20) auto_increment primary key,
     value_income INT(20) 	not null,
     id_income INT(5) not null,
-    value_income_resgitration_date datetime not null,
+    value_income_record_date datetime not null,
     value_income_update_date datetime 
 );
 

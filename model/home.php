@@ -26,4 +26,32 @@ class Home{
             return $repounseQuery;
         }
     }
+
+    public function insertValues(){
+
+        if($this->data['type_value'] == 'incomes'){
+            $query = new Queries('values_incomes');
+            $inserValuesIncomes = [
+                "value_income"=>$this->data['value'],
+                "id_income"=>$this->data['id_type'],
+                "value_income_record_date"=>$this->data['record_date']
+            ];
+
+            $res = $query->insertDatos($inserValuesIncomes);
+
+            return $res;
+
+        }else{
+            $query = new Queries('values_costs');
+            $inserValuesCost = [
+                "value_cost"=>$this->data['value'],
+                "id_cost"=>$this->data['id_type'],
+                "value_cost_record_date"=>$this->data['record_date']
+            ];
+
+            $res = $query->insertDatos($inserValuesCost);
+
+            return $res;
+        }
+    }
 }
